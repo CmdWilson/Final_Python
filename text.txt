@@ -1,0 +1,8 @@
+data_to_update = {}
+    for field in fields_to_change:
+        data_to_update[field] = input(f'Введите {field}: ')
+
+    df = pd.read_csv(file_name).set_index('ID заметки')
+    df.loc[mod_line, fields_to_change] = data_to_update
+    df.to_csv(file_name)
+    print('Спасибо, данные обновлены')
